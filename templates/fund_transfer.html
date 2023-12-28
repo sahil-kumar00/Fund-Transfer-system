@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fund Transfer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        h2 {
+            color: #3498db;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        input {
+            padding: 8px;
+            font-size: 16px;
+            margin-bottom: 10px; /* Added margin-bottom for spacing */
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flash-messages">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <h2>Fund Transfer</h2>
+
+    <form action="/process_transfer" method="post">
+        <label for="amount">Amount to Transfer:</label>
+        <input type="number" id="amount" name="amount" required>
+
+        <label for="accountNumber">Account Number to Transfer:</label>
+        <input type="text" id="accountNumber" name="accountNumber" required>
+
+        <label for="password">Your Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <br> <!-- Added line break to move the button to the next line -->
+
+        <button type="submit">Transfer</button>
+    </form>
+
+</body>
+</html>

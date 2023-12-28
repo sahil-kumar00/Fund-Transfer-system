@@ -1,0 +1,29 @@
+<!-- signup.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+</head>
+<body>
+
+<h1>Signup</h1>
+<p>Your randomly generated account number is: {{ account_number }}</p>
+<!-- Form for Account Number and Password -->
+<form action="{{ url_for('signup') }}" method="post">
+
+    <!-- Hidden input for Account Number -->
+    <input type="hidden" id="account_number" name="account_number" value="{{ account_number }}">
+
+    <!-- Label and Input for Password -->
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <!-- Submit button -->
+    <input type="submit" value="Submit">
+</form>
+<h1>Please note down your account number and password</h1>
+
+</body>
+</html>
