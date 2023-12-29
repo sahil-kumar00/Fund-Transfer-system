@@ -1,29 +1,92 @@
-<!-- signup.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
+    <title>Signup Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #signup-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            text-align: center;
+            color: #555;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        label {
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
-<h1>Signup</h1>
-<p>Your randomly generated account number is: {{ account_number }}</p>
-<!-- Form for Account Number and Password -->
-<form action="{{ url_for('signup') }}" method="post">
+<div id="signup-container">
+    <h1>Signup</h1>
+    <p>Your randomly generated account number is: <strong>{{ account_number }}</strong></p>
 
-    <!-- Hidden input for Account Number -->
-    <input type="hidden" id="account_number" name="account_number" value="{{ account_number }}">
+    <form action="{{ url_for('signup') }}" method="post">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
 
-    <!-- Label and Input for Password -->
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
+        <input type="hidden" id="account_number" name="account_number" value="{{ account_number }}">
+        <input type="submit" value="Submit">
+    </form>
 
-    <!-- Submit button -->
-    <input type="submit" value="Submit">
-</form>
-<h1>Please note down your account number and password</h1>
+    <h2>Please note down your account number and password</h2>
+</div>
 
 </body>
 </html>
