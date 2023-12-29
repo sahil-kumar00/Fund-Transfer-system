@@ -6,24 +6,54 @@
     <title>User Dashboard</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
             text-align: center;
-            margin: 50px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #dashboard-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
             color: #3498db;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
         }
 
         button {
             padding: 10px 20px;
             font-size: 16px;
-            margin: 5px;
+            margin: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
             cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
         }
     </style>
 </head>
 <body>
+
+<div id="dashboard-container">
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         <ul class="flash-messages">
@@ -35,15 +65,17 @@
     {% endwith %}
 
     <h2>User Dashboard</h2>
+    <p>Account Number: {{ user.account_number }}</p>
     <p>Current Amount: ${{ user.current_amount }}</p>
 
     <button onclick="redirectTo('/fund_transfer')">Fund Transfer</button>
+</div>
 
-    <script>
-        function redirectTo(url) {
-            window.location.href = url;
-        }
-    </script>
+<script>
+    function redirectTo(url) {
+        window.location.href = url;
+    }
+</script>
 
 </body>
 </html>
