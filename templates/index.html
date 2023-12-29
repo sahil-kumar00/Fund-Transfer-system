@@ -32,9 +32,12 @@
     </style>
 </head>
 <body>
+{% if flash_message %}
+    <p>{{ flash_message }}</p>
+{% endif %}
+<button onclick="redirectTo('/signup')" id="signupButton" {% if signed_up %}disabled{% endif %}>Signup</button>
+<button onclick="redirectTo('/login')" id="loginButton">Login</button>
 
-    <button onclick="redirectTo('/signup')" id="signupButton">Signup</button>
-    <button onclick="redirectTo('/login')" id="loginButton">Login</button>
 
     <script>
         function redirectTo(url) {
