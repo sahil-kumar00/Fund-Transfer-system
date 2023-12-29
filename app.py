@@ -7,7 +7,7 @@ from base64 import b64encode, b64decode
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user_data.db'
-app.secret_key = 'your_secret_key'  # Set a secret key for the session
+app.secret_key = 'njcv87vbcvb8778bvcvbcv9889vbcvbvc'  # Set a secret key for the session
 db = SQLAlchemy(app)
 
 class User(db.Model):
