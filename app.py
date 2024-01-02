@@ -1,13 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_sqlalchemy import SQLAlchemy
 import random
-from Cryptodome.Cipher import DES
-from Cryptodome.Random import get_random_bytes
+from Crypto.Cipher import DES
+from Crypto.Random import get_random_bytes
 from base64 import b64encode, b64decode
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user_data.db'
-app.secret_key = 'njcv87vbcvb8778bvcvbcv9889vbcvbvc'  # Set a secret key for the session
+app.secret_key = 'njcv87vbcvb8778bvcvbcv9889vbcvbvc'
 db = SQLAlchemy(app)
 
 class User(db.Model):
@@ -23,7 +23,6 @@ def generate_account_number():
 def encrypt_password(password):
     key = get_random_bytes(8)
     cipher = DES.new(key, DES.MODE_ECB)
-    # Pad the password to be a multiple of 8
     padded_password = password + ' ' * (8 - len(password) % 8)
     encrypted_password = cipher.encrypt(padded_password.encode())
     return b64encode(key + encrypted_password).decode()
@@ -49,10 +48,7 @@ def signup():
     if request.method == 'POST':
         password = request.form['password']
         encrypted_password = encrypt_password(password)
-
-        # Store account_number in the session
         session['account_number'] = account_number
-        # Create a new user and add to the database
         new_user = User(account_number=account_number, password=encrypted_password)
         db.session.add(new_user)
         db.session.commit()
