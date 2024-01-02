@@ -4,9 +4,9 @@ Overview:
 The Flask Fund Transfer system App is a web application built with Flask and SQLAlchemy to provide users with a basic fund transfer experience experience. Users can sign up, log in, view their dashboard, and transfer funds to other accounts.
 
 Features:
-User Authentication: Secure user authentication using DES password encryption.
-User Dashboard: View account information and current balance.
-Fund Transfer: Transfer funds securely between accounts.
+1. User Authentication: Secure user authentication using password encryption.
+2. User Dashboard: View account information and current balance.
+3. Fund Transfer: Transfer funds securely between accounts.
 
 Installation:
 1. Download the repository to your device.
