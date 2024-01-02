@@ -14,7 +14,8 @@ Installation:
 3. pip install flask flask-sqlalchemy pycryptodome
 
 Usage:
-1. Run app.py file
+1. Run app.py file.
 2. Open your browser and go to http://localhost:5000/
-3. You can only signup with one account at a time. To get another account number, you have to rerun the app.py file.
-4. If it shows "ModuleNotFound Crypto" error while running the script you should change the name 'Crypto' to 'Cryptodome'.
+3. Sign up for a new account or log in with an existing account.
+4. You can only signup with one account at a time. To get another account number, you have to rerun the app.py file.
+5. If it shows "ModuleNotFound Crypto" error while running the script you should change the name 'Crypto' to 'Cryptodome'.
